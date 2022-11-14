@@ -94,8 +94,8 @@ print(all(conds$SampleID == colnames(expr_matrix_filtered)))
 
 #Excluding the samples with LH day information missing
 
-metadata_ord <- metadata[!rownames(metadata) %in% c("P16-67933", "P18-51972", "P18-51958"),]
-expr_matrix_filtered_omitted <- expr_matrix_filtered[, !colnames(expr_matrix_filtered) %in% c("P16-67933", "P18-51972", "P18-51958")]
+metadata_ord <- metadata[!rownames(metadata) %in% samples_to_excl,]
+expr_matrix_filtered_omitted <- expr_matrix_filtered[, !colnames(expr_matrix_filtered) %in% samples_to_excl, ]
 metadata_ord <- metadata_ord[order(match(rownames(metadata_ord), colnames(expr_matrix_filtered_omitted))), ]  
 
 #Correcting for LH day
