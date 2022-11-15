@@ -1,25 +1,17 @@
 #!/usr/bin/env Rscript
 
-#########################
-####Loading libraries####
-#########################
-
 args = commandArgs(trailingOnly = TRUE)
 options(stingsAsFactors = FALSE)
+config <- args[1]
+source(as.character(config))
 
-cat("Loading libraries...")
+#Loading libraries
+
 library(ggplot2); library(dplyr); library(stringr); library(RColorBrewer); library(haven); library(readxl); library(data.table);
-library(data.table); library(ggpubr); library(gridExtra); library(cowplot)
+library(ggpubr); library(gridExtra); library(cowplot)
 
-####################
-####Loading data####
-####################
+#Loading data
 
-outputdir <- "/Users/darinaobukhova/projects/Romano_project/steroid_analysis"
-cat("Loading data...")
-metadata_file <- "/Users/darinaobukhova/projects/Romano_project/Romano_Overview/metadata_final.sav"
-conds <- fread("/Users/darinaobukhova/projects/Romano_project/Romano_Overview/Overview_sampleID.txt",
-               select = c(1:2))
 
 #######################
 ####Processing data####
