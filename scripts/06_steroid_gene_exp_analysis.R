@@ -39,7 +39,7 @@ transfr_steroid_exp <- gather(transfr_steroid_exp, AKR1C1:SULT2B1, key = "gene",
 transfr_steroid_exp$variable <- as.factor(transfr_steroid_exp$variable)
 transfr_steroid_exp$gene <- as.factor(transfr_steroid_exp$gene)
 
-pdf(file=paste0(wd, "/Figure3_preg_nonpreg_rawcounts_divided.pdf"), height=15, width=15)
+pdf(file=paste0(outputdir, "/Figure3_preg_nonpreg_rawcounts_divided.pdf"), height=15, width=15)
 ggplot(transfr_steroid_exp, aes(x = gene, y = expression, color = variable)) +
   geom_boxplot(alpha=0.8, width=0.5) +
   scale_color_manual(values = c("darkorchid4", "darkorange2")) +
@@ -85,7 +85,7 @@ transfr_steroid_exp_vs <- gather(transfr_steroid_exp_vs, AKR1C1:SULT2B1, key = "
 transfr_steroid_exp_vs$variable <- as.factor(transfr_steroid_exp_vs$variable)
 transfr_steroid_exp_vs$gene <- as.factor(transfr_steroid_exp_vs$gene)
 
-pdf(file=paste0(wd, "/preg_nonpreg_vst_counts.pdf"), height=10, width=12)
+pdf(file=paste0(outputdir, "/preg_nonpreg_vst_counts.pdf"), height=10, width=12)
 ggplot(transfr_steroid_exp_vs, aes(x = gene, y = expression, color = variable)) +
   geom_boxplot(alpha=0.8, width=0.5) +
   scale_color_manual(values = c("darkorchid4", "darkorange2")) +
@@ -112,7 +112,7 @@ subfert_steroid_exp$variable <- as.factor(subfert_steroid_exp$variable)
 subfert_steroid_exp$gene <- as.factor(subfert_steroid_exp$gene)
 
 
-pdf(file=paste0(wd, "/SuppFig1A_subfert_raw_counts_divided.pdf"), height=15, width=15)
+pdf(file=paste0(outputdir, "/SuppFig1A_subfert_raw_counts_divided.pdf"), height=15, width=15)
 ggplot(subfert_steroid_exp, aes(x = gene, y = expression, color = variable)) +
   geom_boxplot(alpha=0.8, width=0.3) +
   scale_color_manual(values = c("darkseagreen4", "dodgerblue4")) +
@@ -138,7 +138,7 @@ subfert_steroid_exp_vs <- gather(subfert_steroid_exp_vs, AKR1C1:SULT2B1, key = "
 subfert_steroid_exp_vs$variable <- as.factor(subfert_steroid_exp_vs$variable)
 subfert_steroid_exp_vs$gene <- as.factor(subfert_steroid_exp_vs$gene)
 
-pdf(file=paste0(wd, "/subfert_vst_counts.pdf"), height=8, width=12)
+pdf(file=paste0(outputdir, "/subfert_vst_counts.pdf"), height=8, width=12)
 ggplot(subfert_steroid_exp_vs, aes(x = gene, y = expression, color = variable)) +
   geom_boxplot(alpha=0.8, width=0.3) +
   scale_color_manual(values = c("darkseagreen4", "dodgerblue4")) +
@@ -182,7 +182,7 @@ steroid_exp_prim_subfert <- gather(steroid_exp_prim_subfert, AKR1C1:SULT2B1, key
 steroid_exp_prim_subfert$variable <- as.factor(steroid_exp_prim_subfert$variable)
 steroid_exp_prim_subfert$gene <- as.factor(steroid_exp_prim_subfert$gene)
 
-pdf(file=paste0(wd, "/SuppFig1B_primarysubfert_pregnonpregraw_counts_divided.pdf"), height=15, width=15)
+pdf(file=paste0(outputdir, "/SuppFig1B_primarysubfert_pregnonpregraw_counts_divided.pdf"), height=15, width=15)
 ggplot(steroid_exp_prim_subfert, aes(x = gene, y = expression, color = variable)) +
   geom_boxplot(alpha=0.8, width=0.3) +
   scale_color_manual(values = c("darkorchid4", "darkorange2")) +
