@@ -108,7 +108,7 @@ corrected_data <- ComBat_seq(as.matrix(expr_matrix_filtered_omitted), batch=batc
 
 save(expr_matrix_filtered, file = paste0(datadir, "expr_matrix_filtered.RData"))
 save(expr_matrix_filtered_omitted, file = paste0(datadir, "expr_matrix_filtered_samp_omitted.RData"))
-save(corrected_data, file = paste0(datadir, "expr_matrix_LH_cor.RData"))
+save(corrected_data, gene_names_fc, file = paste0(datadir, "expr_matrix_LH_cor.RData"))
 save(metadata, metadata_ord, file = paste0(datadir, "processed_metadata.RData"))
 
 sprintf("Preprocessed data is saved at %s", datadir)
