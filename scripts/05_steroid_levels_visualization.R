@@ -10,19 +10,15 @@ source(as.character(config))
 library(ggplot2); library(dplyr); library(stringr); library(RColorBrewer); library(haven); library(readxl); library(data.table);
 library(ggpubr); library(gridExtra); library(cowplot)
 
-#Loading data
+#Reading in & processing the data
 
-
-#######################
-####Processing data####
-######################
-
-metadata <- read_sav(metadata_file) %>% as.data.frame()
-conds <- conds[order(conds$Sample_Project), ] %>% as.data.frame()
-conds$SampleID <- sapply(conds$SampleID, function(x) sub(0, "", x))
-metadata$ID <- sapply(metadata$ID, function(x) gsub("\\(.*", "", x)) %>% 
+conds <- fread(conds_file, select = c(1:2))
+metadata <- read_sav(metadata_file) %> as.data.frame()
+metadata$ID <- sapply(metadata$ID, function(x) gsub("\\(.*", "", x)) %>%
   sapply(function (x) sub("\\s+$", "", x))
 rownames(metadata) <- metadata$ID
+conds <- conds[order(conds$Sample_Project), ] %>% as.data.frame()
+conds$SampleID <- sapply(conds$SampleID, function(x) sub(0, "", x))
 
 #Removing ID column 
 metadata <- metadata[, !names(metadata) %in% c("ID")]
@@ -41,7 +37,6 @@ colnames(steroid_level_tissue_data)[colnames(steroid_level_tissue_data) == "Andr
 #Remove Aldosterone
 steroid_level_tissue_data <- steroid_level_tissue_data[, !names(steroid_level_tissue_data) %in% c("Aldosterone", "Cortisone", "Cortisol", "Corticosterone",
                                                                                                   "x11Deoxycortisol")]
-
 #Adding column with pregnancy status
 steroid_level_tissue_data$Pregnancy_Status <- metadata$Pregnant
 steroid_level_tissue_data$Pregnancy_Status <- c(rep("Non-pregnant", 20), rep("Pregnant", 20))
