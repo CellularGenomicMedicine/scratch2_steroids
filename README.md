@@ -6,7 +6,7 @@ The align_count_workflow directory contains a snakemake workflow for the mapping
 
 ## Data analysis & visualization:
 
-1. Combining expression count matrix for each sample in one joint expression count matrix
+1. [Combining expression count matrix for each sample in one joint expression count matrix] (https://github.com/darinaobukhova/scratch2_steroids/blob/main/scripts/01_count_matrix_generation.R)
 2. Expression count matrix processing: 
    - removal of rows with all 0s and values >=5% in >75% samples
    - retrieval of gene names in the place of Ensembl identifiers
