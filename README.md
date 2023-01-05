@@ -7,11 +7,11 @@ The align_count_workflow directory contains a snakemake workflow for the mapping
 ## Data analysis & visualization:
 
 1. [Combining expression count matrix for each sample in one joint expression count matrix](https://github.com/darinaobukhova/scratch2_steroids/blob/main/scripts/01_count_matrix_generation.R)
-2. [Expression count matrix processing:](https://github.com/darinaobukhova/scratch2_steroids/blob/main/scripts/02_count_matrix_and_metadata_preprocessing.R). 
+2. [Expression count matrix processing:](https://github.com/darinaobukhova/scratch2_steroids/blob/main/scripts/02_count_matrix_and_metadata_preprocessing.R)
    - removal of rows with all 0s and values >=5% in >75% samples
    - retrieval of gene names in the place of Ensembl identifiers
    - correcting for LH day using ComBat_seq() from sva package
-3. Principal component analysis
+3. [Principal component analysis](https://github.com/darinaobukhova/scratch2_steroids/blob/main/scripts/03_PCA.R)
 4. Differential gene expression analysis using DESeq2 package
 5. Performing descriptive statistical analysis and visualisation of tissue steroid levels as violin plots
 6. Analysis and visualisation of raw and variance-stabilized steroid-metabolizing gene expression profiles as boxplots
