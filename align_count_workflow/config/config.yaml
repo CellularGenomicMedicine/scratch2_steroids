@@ -1,0 +1,30 @@
+# Author:  Darina Obukhova
+# Purpose: Config file for pipeline generating count matrices for SCRATCH-2 Project
+# Created: May, 2022
+
+
+#############################
+##----Paths to references----#
+##############################
+
+
+ref:
+    star_index: "/ifs/data/research/refFiles/reference/versions/1.0/Hg19"
+    gtf_anno: "/ifs/data/research/refFiles/reference/versions/1.0/Hg19/gencode.v26lift37.annotation.gtf"
+
+############################
+##----Paths to datafiles----#
+#############################
+
+samples:
+    fastqs: "/ifs/data/research/CGM/Projects/Transcriptomics/Romano/merged/R_sep/"
+    bams: "/ifs/data/research/CGM/Projects/Transcriptomics/Romano/bam/"
+    samplesheet: "/ifs/data/research/CGM/Projects/SCRATCH2/config/samplesheet.txt"
+
+########################################
+##----Paths to results directories----#
+#######################################
+
+output_directory: "/ifs/data/research/CGM/Projects/SCRATCH2/results/"
+log_dir: "/ifs/data/research/CGM/Projects/SCRATCH2/logs/" 
+tmp_dir: "/ifs/data/research/CGM/Projects/SCRATCH2/temp/"

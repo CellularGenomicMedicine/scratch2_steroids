@@ -1,0 +1,61 @@
+"""
+This is a pipeline to align and create count matrices for RNA-seq data
+CGM, MUMC +
+"""
+
+#----Importing some important libraries----#
+
+import pandas as pd
+import os, logging, yaml, sys, re
+from datetime import datetime as date
+
+#----Path to the confifuration file----#
+configfile:
+    'config/config.yaml'
+
+#----Paths to annotation files----#
+
+STARINDEX = config['ref']['star_index']
+GTF = config['ref']['gtf_anno']
+
+#----Paths to data files----#
+
+datadir_fq = config['samples']['fastqs']
+datadir_bam = config['samples']['bams']
+
+#----Path to output directory----#
+
+def set_output_dir():
+    if config['output_directory'] == '':
+        path = os.getcwd()
+        d1 = date.today().strftime("%b-Week_%V")
+        return (os.path.join(path, config['project']+'-'+ d1))
+    else:
+        d1 = date.today().strftime("%b-Week_%V")
+        return (config['output_directory']+ d1)
+
+output_directory = set_output_dir()
+
+#----Path to logs directory----#
+
+log_directory = config['log_dir']
+
+#----Creating a list of samplenames----#
+
+f = pd.read_csv(config['samples']['samplesheet'], sep='[,\t]', engine='python')
+if 'SampleID' in f.columns:
+    samples = [i for i in f['SampleID']]
+else:
+    samples = [i for i in f['Samplename']]
+
+#####MODULES####
+
+rule all:
+    input:
+        expand("unsorted_bam/{sample}Aligned.out.bam", sample=samples),
+        expand(output_directory + "/name_sorted/{sample}.sortedByName.bam", sample=samples),
+        expand(output_directory + "/featurecounts/{sample}.exon.counts.tsv", sample=samples)
+
+
+include:
+    'rules/STAR_count.smk'
