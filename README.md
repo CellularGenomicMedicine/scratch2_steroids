@@ -12,7 +12,7 @@ The align_count_workflow directory contains a snakemake workflow for the mapping
    - retrieval of gene names in the place of Ensembl identifiers
    - correcting for LH day using ComBat_seq() from sva package
 3. [Principal component analysis](https://github.com/darinaobukhova/scratch2_steroids/blob/main/scripts/03_PCA.R)
-4. Differential gene expression analysis using DESeq2 package
-5. Performing descriptive statistical analysis and visualisation of tissue steroid levels as violin plots
-6. Analysis and visualisation of raw and variance-stabilized steroid-metabolizing gene expression profiles as boxplots
+4. [Differential gene expression analysis using DESeq2 package](https://github.com/darinaobukhova/scratch2_steroids/blob/main/scripts/04_DEG_analysis.R)
+5. [Performing descriptive statistical analysis and visualisation of tissue steroid levels as violin plots](https://github.com/darinaobukhova/scratch2_steroids/blob/main/scripts/05_steroid_levels_visualization.R)
+6. [Analysis and visualisation of raw and variance-stabilized steroid-metabolizing gene expression profiles as boxplots](https://github.com/darinaobukhova/scratch2_steroids/blob/main/scripts/06_steroid_gene_exp_analysis.R)
    
